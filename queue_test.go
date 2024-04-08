@@ -6,8 +6,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNew(t *testing.T) {
-	q := New[int]()
+func TestNewQueue(t *testing.T) {
+	q := NewQueue[int]()
 	assert.NotNil(t, q)
 	assert.Equal(t, 0, len(q.contents))
 }
@@ -23,7 +23,7 @@ func TestNewQueueFromSlice(t *testing.T) {
 }
 
 func TestEnqueue(t *testing.T) {
-	q := New[int]()
+	q := NewQueue[int]()
 	q.Enqueue(1)
 	q.Enqueue(2)
 	q.Enqueue(3)
@@ -34,7 +34,7 @@ func TestEnqueue(t *testing.T) {
 }
 
 func TestDequeue(t *testing.T) {
-	q := New[int]()
+	q := NewQueue[int]()
 	q.Enqueue(1)
 	q.Enqueue(2)
 	q.Enqueue(3)
@@ -47,14 +47,14 @@ func TestDequeue(t *testing.T) {
 }
 
 func TestDequeueEmptyQueue(t *testing.T) {
-	q := New[int]()
+	q := NewQueue[int]()
 	assert.Panics(t, func() {
 		q.Dequeue()
 	})
 }
 
 func TestPeek(t *testing.T) {
-	q := New[int]()
+	q := NewQueue[int]()
 	q.Enqueue(1)
 	q.Enqueue(2)
 	q.Enqueue(3)
@@ -68,14 +68,14 @@ func TestPeek(t *testing.T) {
 }
 
 func TestPeekEmptyQueue(t *testing.T) {
-	q := New[int]()
+	q := NewQueue[int]()
 	assert.Panics(t, func() {
 		q.Peek()
 	})
 }
 
 func TestIsEmpty(t *testing.T) {
-	q := New[int]()
+	q := NewQueue[int]()
 	assert.True(t, q.IsEmpty())
 
 	q.Enqueue(1)

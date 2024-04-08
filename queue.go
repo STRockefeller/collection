@@ -4,7 +4,7 @@ type Queue[T any] struct {
 	contents []T
 }
 
-func New[T any]() Queue[T] {
+func NewQueue[T any]() Queue[T] {
 	return Queue[T]{
 		contents: []T{},
 	}
